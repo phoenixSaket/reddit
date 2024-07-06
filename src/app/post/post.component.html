@@ -1,0 +1,80 @@
+<div class="post cabin-regular">    
+    <div class="top">
+        <div class="row">
+            <div class="author-section">
+                <div class="cabin-bold ellipsis">
+                    {{details.author}}
+                </div>
+                <div class="subreddit-deatils">
+                    <div class="grey ellipsis">{{details.subredditName}}</div>
+                </div>
+            </div>
+            <div class="other-top-section">
+                <div class="small-text grey">
+                    {{details.dateCreated_UTC | date}}
+                </div>
+                <div class="nsfw" *ngIf="details.nsfw">
+                    <span class="material-symbols-outlined">
+                        18_up_rating
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="title ellipsis cabin-bold">
+            {{details.title}}
+        </div>
+    </div>
+
+    
+
+    <div class="post-details">
+        <div class="image">
+            <img class="post-image" [src]="details.image" alt="post image" (error)="details.image = '/assets/no-image.jpg'">
+        </div>
+    </div>
+
+    <div class="other-details">
+        <div class="left">
+            <div class="likes">
+                <span class="small-icon material-symbols-outlined">
+                    favorite
+                </span>
+                <span class="cabin-bold small-text primary">
+                    {{details.like}}
+                </span>
+            </div>
+            <div class="comment">
+                <span class="small-icon material-symbols-outlined">
+                    mode_comment
+                </span>
+                <span class="cabin-bold small-text primary">
+                    {{details.comment}}
+                </span>
+            </div>
+        </div>
+        <div class="right">
+            <!-- <div class="download" *ngIf="details.image != '/assets/no-image.jpg'" (click)="download(details)">
+                <span class="small-icon material-symbols-outlined ">
+                    download_2
+                </span>
+            </div> -->
+            <div class="open-in-new">
+                <a [href]="details.link" target="_blank" class="send small-icon material-symbols-outlined">
+                    open_in_new
+                </a>
+            </div>
+            <div class="full-screen" *ngIf="details.image != '/assets/no-image.jpg'" (click)="!shouldShowOutlet ? toggleOutlet() : ''">
+                <span class="small-icon material-symbols-outlined">
+                    open_in_full
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="full-screen-image" *ngIf="shouldShowOutlet">
+    <span class="close material-symbols-outlined" (click)="toggleOutlet()">
+        close
+    </span>
+    <img class="fullscreen-image" [src]="details.image" alt="image">
+</div>

@@ -1,0 +1,142 @@
+.post {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 8px;
+    border-radius: 8px;
+    overflow-wrap: break-word;
+    height: 100%;
+    box-shadow: 0 0 8px 0.1px rgba(0, 0, 0, 0.35)
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.author-section,.subreddit-details, .other-top-section, .post-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.subreddit-details {
+    gap: 2px;
+}
+
+.post-details {
+    justify-content: center;
+}
+
+.image {
+    width: 100%;
+}
+
+.post-image {
+    width: inherit;
+    height: auto;
+    object-fit: cover;
+    max-height: 335px;
+    min-width: 335px;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.other-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.likes , .comment {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.send {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.small-text {
+    font-size: 14px;
+}
+
+.small-icon {
+    font-size: 16px;
+    color: var(--primary)
+}
+
+.grey {
+    color: var(--grey);
+}
+
+.full-screen {
+    cursor: pointer;
+}
+
+.full-screen-image {
+    position: fixed;
+    margin: auto;
+    width: calc(100vw - 40px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.fullscreen-image {
+    width: inherit;
+    height: auto;
+
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+    object-fit: contain;
+    z-index: 9;
+    outline: 20px solid var(--white);
+}
+
+.close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary);
+    padding: 10px;
+    border-radius: 50% 0 50% 50%;
+    color: var(--white);
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+}
+
+.download {
+    cursor: pointer;
+}
+
+.primary {
+    color: var(--primary);
+}
+
+.left , .right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}

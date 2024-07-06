@@ -1,0 +1,12 @@
+<div class="home">
+    <div class="no-results" *ngIf="posts.length == 0">
+        Try Searching 
+        <span class="material-symbols-outlined">
+            arrow_upward
+        </span>
+    </div>
+
+    <div class="results" *ngIf="posts.length > 0">
+        <app-post *ngFor="let post of posts" [details]="post"></app-post> 
+    </div>
+</div>

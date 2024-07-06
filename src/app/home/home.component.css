@@ -1,0 +1,13 @@
+.home {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
