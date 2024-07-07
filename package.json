@@ -1,6 +1,7 @@
 {
   "name": "reddit",
   "version": "0.0.0",
+  "homepage": "https://www.phoenixSaket.gtihub.io/reddit/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
