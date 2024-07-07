@@ -1,8 +1,58 @@
-<div class="search-bar cabin-regular ">
-    <input class="search-input" type="text" name="search-bar" placeholder="Search by page / username" (keyup)="updatedKeyword($event)">
-    <div class="icon" (click)="searchReddit()">
-        <span class="material-symbols-outlined">
-            search
-        </span>
+<div class="container">
+    <div class="search-bar cabin-regular ">
+        <input class="search-input" type="text" name="search-bar" placeholder="Search by page / username" [value]="searchKeyword" (keyup)="updatedKeyword($event)">
+        <div class="icon" (click)="searchReddit()">
+            <span class="material-symbols-outlined">
+                search
+            </span>
+        </div>
+    </div>
+    
+    <div class="dropdown cabin-regular" >
+        <input class="dropdown-select" id="dropdown-select" [value]="searchKeyword.length > 0 ? searchKeyword: 'Previous Pages'"  (click)="toggleDropdown()">
+        <ul class="list" *ngIf="showDropdown">
+            <li class="option" *ngIf="searchKeyword.length == 0 " [value]="null" (click)="onSelectionChange(null)">Previous Pages</li>
+            <li class="option" [value]="page" (click)="onSelectionChange(page)" *ngFor="let page of previousPages">
+                <div>
+                    {{page}}
+                </div>
+                <div class="cancel" (click)="removeFromList(page)">
+                    <span class="material-symbols-outlined">
+                        cancel
+                    </span>
+                </div>
+            </li>
+        </ul>
+        <!-- <select class="dropdown-select" id="dropdown-select" (change)="onSelectionChange($event)">
+            <ul>
+                <li class="option" [value]="null">Previous Pages</li>
+                <li class="option" *ngFor="let page of previousPages" [value]="page">
+                    <div>
+                        {{page}}
+                    </div>
+                    <div class="cancel">
+                        <span class="material-symbols-outlined">
+                            cancel
+                        </span>
+                    </div>
+                </li>
+            </ul>
+            <option class="option" [value]="null">Previous Pages</option>
+            <option class="option" *ngFor="let page of previousPages" [value]="page">
+                <div>
+                    {{page}}
+                </div>
+                <div class="cancel">
+                    <span class="material-symbols-outlined">
+                        cancel
+                    </span>
+                </div>
+            </option>
+        </select> -->
+        <div class="icon" (click)="toggleDropdown()">
+            <span class="material-symbols-outlined">
+                arrow_downward
+            </span>
+        </div>
     </div>
 </div>

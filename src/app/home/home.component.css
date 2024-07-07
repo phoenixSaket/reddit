@@ -11,3 +11,11 @@
     flex-wrap: wrap;
     gap: 12px;
 }
+
+.no-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    gap: 16px;
+}

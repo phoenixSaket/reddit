@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { SearchService } from '../services/search.service';
 import { Post } from '../models/post';
 
@@ -11,10 +11,18 @@ export class SearchBarComponent implements OnInit {
 
   @Output() posts: EventEmitter<Post[]> = new EventEmitter<Post[]>();
   searchKeyword: string = "";
+  previousPages: string[] = [];
+  showDropdown: boolean = false;
 
   constructor(private searchService: SearchService) { }
-
+  
   ngOnInit(): void {
+    this.previousPages = this.searchService.getPreviousPages();
+    this.searchService.changeInPreviousPages.subscribe((isChanged: boolean) => {
+      if (isChanged) {
+        this.previousPages = this.searchService.getPreviousPages();
+      }
+    })
   }
 
   updatedKeyword(event: any) {
@@ -76,5 +84,24 @@ export class SearchBarComponent implements OnInit {
       console.log("SearchBarComponent.formatData caught an error: ", err);
     }
   }
+
+  onSelectionChange(selection: any) {
+    if(!!selection) {
+      console.log(selection);
+      this.searchKeyword = selection;
+      this.searchReddit();
+    }
+
+    this.toggleDropdown();
+  }
+
+  toggleDropdown() {
+    this.showDropdown = !JSON.parse(JSON.stringify(this.showDropdown));
+  }
+
+  removeFromList(page: string) {
+    this.searchService.removeFromPreviousPages(page);
+  }
+
 
 }
