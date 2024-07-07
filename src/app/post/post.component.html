@@ -29,7 +29,7 @@
 
     <div class="post-details">
         <div class="image">
-            <img class="post-image" [src]="details.image" alt="post image" (error)="details.image = '/assets/no-image.jpg'">
+            <img class="post-image" [src]="details.image" alt="post image" (error)="details.image = 'assets/no-image.jpg'">
         </div>
     </div>
 
@@ -63,7 +63,7 @@
                     open_in_new
                 </a>
             </div>
-            <div class="full-screen" *ngIf="details.image != '/assets/no-image.jpg'" (click)="!shouldShowOutlet ? toggleOutlet() : ''">
+            <div class="full-screen" *ngIf="details.image != 'assets/no-image.jpg'" (click)="!shouldShowOutlet ? toggleOutlet() : ''">
                 <span class="small-icon material-symbols-outlined">
                     open_in_full
                 </span>
